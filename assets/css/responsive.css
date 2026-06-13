@@ -1,0 +1,179 @@
+/* ==========================================================================
+   1. STYLES POUR TABLETTES & ÉCRANS INTERMÉDIAIRES (MAX-WIDTH: 1024PX)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2rem; }
+
+    /* Ajustement Hero Grid */
+    .hero-container {
+        gap: 40px;
+    }
+
+    /* Grille d'Avantages : Passage de 3 colonnes à 1 colonne fluide */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .benefits-image {
+        grid-row: 1; /* Remonte l'image centrale au-dessus sur tablette/mobile */
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    /* Ajustement de la barre de statistiques */
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 30px;
+    }
+
+    /* Section Étapes (Processus) */
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .steps-left {
+        position: relative;
+        top: 0;
+        text-align: center;
+    }
+
+    /* Grille de forfaits (Tarifs) */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+
+    .price-card.featured {
+        transform: scale(1); /* Annule l'agrandissement pour éviter les débordements */
+    }
+}
+
+/* ==========================================================================
+   2. STYLES POUR SMARTPHONES (MAX-WIDTH: 768PX)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- Activation & Affichage du Menu Burger --- */
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Transformation de la Nav classique en volet mobile superposé */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--white);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        flex-direction: column;
+        padding: 100px 40px;
+        gap: 24px;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+    }
+
+    /* Classe dynamique injectée par main.js au clic */
+    .nav-menu.nav-open {
+        right: 0;
+    }
+
+    /* Animation du bouton burger en croix (X) */
+    .burger-active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .burger-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* --- Hero Section Mobile --- */
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    /* Barre de recherche adaptative */
+    .search-box {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .search-icon {
+        display: none; /* Épargne l'espace visuel sur mobile */
+    }
+
+    .search-box input {
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .btn-search {
+        width: 100%;
+    }
+
+    .hero-image-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* --- Sections Globales & Eléments --- */
+    .stats-bar {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+
+    .step-item {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .step-number {
+        font-size: 2rem;
+    }
+
+    /* Ajustement des formulaires et pieds de page */
+    .contact-card {
+        padding: 32px 20px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-brand p {
+        margin: 15px auto 0 auto;
+    }
+
+    /* Bouton retour en haut repositionné sur mobile */
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
