@@ -1,0 +1,118 @@
+/* ==========================================================================
+   1. POLICES & VARIABLES (DESIGN SYSTEM)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Couleurs Principales */
+    --primary: #1A56DB;       /* Bleu Roi profond (Inspiré du design) */
+    --primary-dark: #1E429F;  /* Bleu Nuit pour les états survolés/sections */
+    --secondary: #0EA5E9;     /* Bleu ciel pour les accents */
+    
+    /* Couleurs de Statut & Textes */
+    --dark: #111827;          /* Noir/Gris très foncé pour les titres */
+    --text: #4B5563;          /* Gris text pour les paragraphes */
+    --text-light: #9CA3AF;    /* Gris clair pour les sous-titres */
+    
+    /* Systèmes de Fonds */
+    --bg-light: #F9FAFB;      /* Fond de section gris ultra-léger */
+    --bg-card: #F3F4F6;       /* Fond des cartes secondaires */
+    --white: #FFFFFF;
+    
+    /* Bordures & Ombres */
+    --border: #E5E7EB;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;        /* Coins très arrondis comme sur les captures */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. RESETS & STYLES DE BASE
+   ========================================================================== */
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Base Layout Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Typographie globale */
+h1, h2, h3, h4 {
+    color: var(--dark);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Boutons Globaux */
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px; /* Boutons totalement pilules */
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    padding: 10px 26px;
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-light);
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
