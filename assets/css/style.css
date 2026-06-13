@@ -735,3 +735,40 @@ img {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ==========================================================================
+   5. BOUTON BACK TO TOP
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition-smooth);
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Classe d'activation injectée en JS */
+.back-to-top.scroll-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

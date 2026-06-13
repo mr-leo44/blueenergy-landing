@@ -117,3 +117,26 @@ function initScrollAnimations() {
         animationObserver.observe(element);
     });
 }
+
+/* ==========================================================================
+   5. GESTION DU BOUTON BACK TO TOP
+   ========================================================================== */
+const backToTopBtn = document.getElementById('back-to-top');
+
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        // Apparaît si on défile de plus de 400px
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('scroll-visible');
+        } else {
+            backToTopBtn.classList.remove('scroll-visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
