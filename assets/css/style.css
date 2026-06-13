@@ -715,3 +715,23 @@ img {
     text-align: center;
     font-size: 0.85rem;
 }
+
+/* ==========================================================================
+   4. UTILS & CLASSES D'ANIMATIONS (SCROLL REVEAL)
+   ========================================================================== */
+.reveal-effect {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Décalage temporel pour un effet de cascade fluide en grille (Staggered Effect) */
+.benefit-card:nth-child(2), .price-card:nth-child(2) { transition-delay: 0.15s; }
+.price-card:nth-child(3) { transition-delay: 0.3s; }
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
