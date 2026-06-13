@@ -17,33 +17,37 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initNavigation() {
     const burgerMenu = document.querySelector('.burger-menu');
+    const closeMenu = document.querySelector('.close-menu');
     const navMenu = document.querySelector('.nav-menu');
     const header = document.querySelector('.header');
 
-    // Toggle Menu Mobile
+    // Ouvrir le volet mobile
     if (burgerMenu && navMenu) {
         burgerMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('nav-open');
-            burgerMenu.classList.toggle('burger-active');
-        });
-
-        // Ferme le menu mobile si on clique sur un lien ancre
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('nav-open');
-                burgerMenu.classList.remove('burger-active');
-            });
+            navMenu.classList.add('nav-open');
         });
     }
 
-    // Effet d'ombrage sur le Header au défilement (Sticky Blur)
+    // Fermer le volet mobile via la croix "X"
+    if (closeMenu && navMenu) {
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('nav-open');
+        });
+    }
+
+    // Fermer le volet lorsqu'on clique sur un lien de section
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('nav-open');
+        });
+    });
+
+    // Rendre le header fixe et persistant au scroll avec une ombre douce
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            header.style.boxShadow = 'var(--shadow-md)';
-            header.style.borderBottomColor = 'transparent';
+        if (window.scrollY > 10) {
+            header.classList.add('header-scrolled');
         } else {
-            header.style.boxShadow = 'none';
-            header.style.borderBottomColor = 'var(--border)';
+            header.classList.remove('header-scrolled');
         }
     });
 }

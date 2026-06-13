@@ -58,122 +58,68 @@
    2. STYLES POUR SMARTPHONES (MAX-WIDTH: 768PX)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* --- Activation & Affichage du Menu Burger --- */
+    /* Affiche le bouton burger (3 barres horizontales) */
     .burger-menu {
         display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
     }
 
-    /* Transformation de la Nav classique en volet mobile superposé */
+    .burger-menu span {
+        width: 24px;
+        height: 3px;
+        background-color: var(--dark);
+        border-radius: var(--radius-sm);
+        transition: var(--transition-smooth);
+    }
+
+    /* Style du volet de navigation mobile */
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: -100%; /* Caché par défaut à droite */
         width: 80%;
         max-width: 320px;
         height: 100vh;
         background-color: var(--white);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+        display: flex;
         flex-direction: column;
         padding: 100px 40px;
         gap: 24px;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999;
+        z-index: 1001;
     }
 
-    /* Classe dynamique injectée par main.js au clic */
+    /* Devient visible */
     .nav-menu.nav-open {
         right: 0;
     }
 
-    /* Animation du bouton burger en croix (X) */
-    .burger-active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    /* Le bouton de fermeture "X" dans le menu */
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: none;
+        border: none;
+        font-size: 2.2rem;
+        font-weight: 300;
+        color: var(--dark);
+        cursor: pointer;
+        line-height: 1;
+        padding: 5px;
     }
-    .burger-active span:nth-child(2) {
-        opacity: 0;
-    }
-    .burger-active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+}
 
-    /* --- Hero Section Mobile --- */
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.3rem;
-    }
-
-    /* Barre de recherche adaptative */
-    .search-box {
-        flex-direction: column;
-        border-radius: var(--radius-md);
-        padding: 16px;
-        gap: 12px;
-    }
-
-    .search-icon {
-        display: none; /* Épargne l'espace visuel sur mobile */
-    }
-
-    .search-box input {
-        width: 100%;
-        text-align: center;
-        padding: 8px 0;
-    }
-
-    .btn-search {
-        width: 100%;
-    }
-
-    .hero-image-wrapper {
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    /* --- Sections Globales & Eléments --- */
-    .stats-bar {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .stat-item h3 {
-        font-size: 2rem;
-    }
-
-    .step-item {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-
-    .step-number {
-        font-size: 2rem;
-    }
-
-    /* Ajustement des formulaires et pieds de page */
-    .contact-card {
-        padding: 32px 20px;
-    }
-
-    .footer-top {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .footer-brand p {
-        margin: 15px auto 0 auto;
-    }
-
-    /* Bouton retour en haut repositionné sur mobile */
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 42px;
-        height: 42px;
+/* Cache la croix sur les résolutions PC/Mac */
+@media (min-width: 769px) {
+    .close-menu {
+        display: none;
     }
 }

@@ -772,3 +772,23 @@ img {
     visibility: visible;
     transform: translateY(0);
 }
+
+/* Assure que le header reste fixe et gagne une ombre subtile au scroll */
+.header {
+    position: fixed; /* Remplacé sticky par fixed pour une tenue parfaite */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    transition: box-shadow 0.3s ease;
+}
+
+.header-scrolled {
+    box-shadow: var(--shadow-md);
+    border-bottom-color: transparent;
+}
+
+/* Ajustement pour éviter que la section Hero ne passe sous le header fixe */
+body {
+    padding-top: 80px; 
+}
